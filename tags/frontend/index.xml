@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>前端 on MOUI</title><link>https://mooouui.top/tags/frontend/</link><description>Recent content in 前端 on MOUI</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Thu, 27 Mar 2025 21:41:33 +0800</lastBuildDate><atom:link href="https://mooouui.top/tags/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>如何使用vite脚手架构建一个vue3项目</title><link>https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/</link><pubDate>Sat, 27 Apr 2024 15:51:02 +0800</pubDate><guid>https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/</guid><description>&lt;img src="https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/hero.svg" alt="Featured image of post 如何使用vite脚手架构建一个vue3项目" />&lt;h2 id="用-vite-脚手架初始化项目">用 vite 脚手架初始化项目
+&lt;/h2>&lt;p>运行命令 -&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">yarn create vite
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>result -
+&lt;img src="https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/create-vite.png"
+width="816"
+height="668"
+srcset="https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/create-vite_hu_ee832475963a945c.png 480w, https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/create-vite_hu_60be092429d275ba.png 1024w"
+loading="lazy"
+alt="result"
+class="gallery-image"
+data-flex-grow="122"
+data-flex-basis="293px"
+>&lt;/p>
+&lt;p>生成的树形目录 -
+&lt;img src="https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/tree-menu.png"
+width="816"
+height="600"
+srcset="https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/tree-menu_hu_68dd906cedb4c534.png 480w, https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/tree-menu_hu_4223cf71dcb25579.png 1024w"
+loading="lazy"
+alt="tree menu"
+class="gallery-image"
+data-flex-grow="136"
+data-flex-basis="326px"
+>&lt;/p>
+&lt;h2 id="配置-eslint">配置 eslint
+&lt;/h2>&lt;h3 id="安装-eslint">安装 eslint
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">yarn add -D eslint
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="eslint-init">eslint init
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl"> yarn eslint --init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>result -
+&lt;img src="https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/eslint-init.png"
+width="1592"
+height="578"
+srcset="https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/eslint-init_hu_2d95ef5dbe2c066.png 480w, https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/eslint-init_hu_d5ea5901365cfd.png 1024w"
+loading="lazy"
+alt="init eslint"
+class="gallery-image"
+data-flex-grow="275"
+data-flex-basis="661px"
+>&lt;/p>
+&lt;p>会在目录下生成&lt;code>.eslintrc.*&lt;/code>文件，但会有一个报错，需要在 env 下加&lt;code>&amp;quot;node&amp;quot;: true&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// ❌ &amp;#39;module&amp;#39; is not defined.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">module&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">exports&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">env&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">browser&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">es2021&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// add here resolve *&amp;#39;module&amp;#39; is not defined* bug
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">node&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>eslint 对 env node 的解释：node - Node.js 的全局变量和 Node.js 的范围。
+它会暴露出 nodejs 的全局变量（module 是其中之一）&lt;/p>
+&lt;h3 id="在-packagejson-配置-script">在 package.json 配置 script
+&lt;/h3>&lt;p>在 script 下添加&lt;code>&amp;quot;lint&amp;quot;: &amp;quot;eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix&amp;quot;&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 运行&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yarn lint
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>会提示有报错信息&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">moui@bogon vite-project % yarn lint
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yarn run v1.22.19
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">$ eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/Users/moui/CodeSpace/vite-project/src/App.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1:8 error Parsing error: &lt;span class="s1">&amp;#39;&amp;gt;&amp;#39;&lt;/span> expected
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">/Users/moui/CodeSpace/vite-project/src/components/HelloWorld.vue
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 1:8 error Parsing error: &lt;span class="s1">&amp;#39;&amp;gt;&amp;#39;&lt;/span> expected
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">✖ &lt;span class="m">2&lt;/span> problems &lt;span class="o">(&lt;/span>&lt;span class="m">2&lt;/span> errors, &lt;span class="m">0&lt;/span> warnings&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">error Command failed with &lt;span class="nb">exit&lt;/span> code 1.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>原因：eslint 配置的 &lt;code>parser: &amp;quot;@typescript-eslint/parser&amp;quot;&lt;/code> 是不会处理 vue 的 SFC 文件的 lint 的，对于.vue 的文件需要借助
+&lt;code>eslint-plugin-vue&lt;/code>，在&lt;code>eslint-plugin-vue&lt;/code>的官方文档文档中有说明：&lt;strong>如果您已经使用另一个解析器（例如 &amp;ldquo;parser&amp;rdquo;: &amp;ldquo;@typescript-eslint/parser&amp;rdquo; ），请将其移至 parserOptions 中，这样它就不会与此插件配置使用的 vue-eslint-parser 冲突&lt;/strong>
+所以要把 eslint 的配置文件改为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-diff" data-lang="diff">&lt;span class="line">&lt;span class="cl">&lt;span class="gd">- &amp;#34;parser&amp;#34;: &amp;#34;@typescript-eslint/parser&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gd">&lt;/span>&lt;span class="gi">+ &amp;#34;parser&amp;#34;: &amp;#34;vue-eslint-parser&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gi">&lt;/span> &amp;#34;parserOptions&amp;#34;: {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gi">+ &amp;#34;parser&amp;#34;: &amp;#34;@typescript-eslint/parser&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gi">&lt;/span> }
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="配置-prettier">配置 prettier
+&lt;/h2>&lt;h3 id="安装-prettier">安装 prettier
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">yarn add -D prettier
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="创建配置文件">创建配置文件
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">touch .prettierrc.cjs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>内容配置参考：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">module&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">exports&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 一行的字符数，如果超过会进行换行，默认为80
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">printWidth&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 一个tab代表几个空格数，默认为2
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">tabWidth&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 是否使用tab进行缩进，默认为false，表示用空格进行缩减
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">useTabs&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 字符串是否使用单引号，默认为false，使用双引号
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">singleQuote&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 行位是否使用分号，默认为true
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">semi&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 是否使用尾逗号，有三个可选值&amp;#34;&amp;lt;none|es5|all&amp;gt;&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">trailingComma&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="s2">&amp;#34;none&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 对象大括号直接是否有空格，默认为true，效果：{ foo: bar }
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">bracketSpacing&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="解决冲突">解决冲突
+&lt;/h3>&lt;p>理论上&lt;code>eslint&lt;/code>用于解决我们的代码规范，确保我们的代码质量， 而&lt;code>prettier&lt;/code>则是用于优化我们的代码格式，提供更好的可读性和美观度。
+即&lt;strong>使用 Prettier 来解决代码格式问题，使用 linter 来解决代码质量问题&lt;/strong>
+但实际上 Linters 通常不仅包含代码质量规则，还包含风格规则。使用 Prettier 时，大多数风格规则都是不必要的，但更糟糕的是——它们可能与 Prettier 发生冲突！
+但幸运的是可以通过一些配置关闭 linters 和 prettier 的冲突&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;code>eslint-config-prettier&lt;/code>
+关闭所有不必要或可能与 Prettier 冲突的规则。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>eslint-plugin-prettier&lt;/code>
+以 ESLint 规则运行 Prettier，并将差异报告为单独的 ESLint 问题 （基于 prettier 代码风格的 eslint 规则，即 eslint 使用 pretter 规则来格式化代码。）&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;code>eslint-plugin-prettier&lt;/code>:
+This plugin works best if you disable all other ESLint rules relating to code formatting, and only enable rules that detect potential bugs. (If another active ESLint rule disagrees with prettier about how code should be formatted, it will be impossible to avoid lint errors.) You can use &lt;code>eslint-config-prettier&lt;/code> to disable all formatting-related ESLint rules.&lt;/p>
+&lt;p>所以基于此，我们可以配置&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">yarn add -D eslint-config-prettier eslint-plugin-prettier
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>插件&lt;code>eslint-plugin-prettier&lt;/code>附带一个 plugin:prettier/recommended 配置，可一次性设置插件和 &lt;code>eslint-config-prettier&lt;/code>&lt;/p>
+&lt;p>然后您需要添加 plugin:prettier/recommended 作为 &lt;code>.eslintrc.*&lt;/code> 中的&lt;strong>最后&lt;/strong>一个扩展：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-diff" data-lang="diff">&lt;span class="line">&lt;span class="cl">module.exports = {
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> //...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> extends: [
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;eslint:recommended&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;plugin:vue/vue3-essential&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &amp;#39;plugin:@typescript-eslint/recommended&amp;#39;,
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gi">+ &amp;#39;plugin:prettier/recommended&amp;#39; // 新增，必须放在最后面
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gi">&lt;/span> ],
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> //...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>之后我们就可以在&lt;code>.prettierrc.*&lt;/code>中设置自己的 prettier 规则了&lt;/p></description></item></channel></rss>

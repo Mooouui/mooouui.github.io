@@ -1,0 +1,158 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content='用 vite 脚手架初始化项目 运行命令 -\n1 yarn create vite result - 生成的树形目录 - 配置 eslint 安装 eslint 1 yarn add -D eslint eslint init 1 yarn eslint --init result - 会在目录下生成.eslintrc.*文件，但会有一个报错，需要在 env 下加"node": true\n'><title>如何使用vite脚手架构建一个vue3项目</title>
+<link rel=canonical href=https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/><link rel=stylesheet href=/scss/style.min.547cd36b0382691b1aa5f90ec8f68ba74191802806127945db8b934472f17b33.css><meta property='og:title' content="如何使用vite脚手架构建一个vue3项目"><meta property='og:description' content='用 vite 脚手架初始化项目 运行命令 -\n1 yarn create vite result - 生成的树形目录 - 配置 eslint 安装 eslint 1 yarn add -D eslint eslint init 1 yarn eslint --init result - 会在目录下生成.eslintrc.*文件，但会有一个报错，需要在 env 下加"node": true\n'><meta property='og:url' content='https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/'><meta property='og:site_name' content='MOUI'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='vue'><meta property='article:tag' content='frontend'><meta property='article:published_time' content='2024-04-27T15:51:02+08:00'><meta property='article:modified_time' content='2025-03-27T21:41:33+08:00'><meta property='og:image' content='https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/hero.svg'><meta name=twitter:title content="如何使用vite脚手架构建一个vue3项目"><meta name=twitter:description content='用 vite 脚手架初始化项目 运行命令 -\n1 yarn create vite result - 生成的树形目录 - 配置 eslint 安装 eslint 1 yarn add -D eslint eslint init 1 yarn eslint --init result - 会在目录下生成.eslintrc.*文件，但会有一个报错，需要在 env 下加"node": true\n'><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://mooouui.top/p/how-to-build-a-vue3-project-with-vite-scaffold/hero.svg'><link rel="shortcut icon" href=/logo.svg></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"dark")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_fa0312f5100597b0.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>MOUI</a></h1><h2 class=site-description>It's not in your hands, It's not in your head.</h2></div></header><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>主页</span></a></li><li><a href=/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>关于</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>归档</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>搜索</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>链接</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">目录</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#用-vite-脚手架初始化项目>用 vite 脚手架初始化项目</a></li><li><a href=#配置-eslint>配置 eslint</a><ol><li><a href=#安装-eslint>安装 eslint</a></li><li><a href=#eslint-init>eslint init</a></li><li><a href=#在-packagejson-配置-script>在 package.json 配置 script</a></li></ol></li><li><a href=#配置-prettier>配置 prettier</a><ol><li><a href=#安装-prettier>安装 prettier</a></li><li><a href=#创建配置文件>创建配置文件</a></li><li><a href=#解决冲突>解决冲突</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/how-to-build-a-vue3-project-with-vite-scaffold/><img src=/p/how-to-build-a-vue3-project-with-vite-scaffold/hero.svg loading=lazy alt="Featured image of post 如何使用vite脚手架构建一个vue3项目"></a></div><div class=article-details><header class=article-category><a href=/categories/learning-notes/ style=background-color:#2a9d8f;color:#fff>学习笔记</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/how-to-build-a-vue3-project-with-vite-scaffold/>如何使用vite脚手架构建一个vue3项目</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Apr 27, 2024</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 3 分钟</time></div></footer><footer class=article-tags><div><svg class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg>
+<a href=https://mooouui.top/tags/vue/>Vue</a>
+,
+<a href=https://mooouui.top/tags/frontend/>前端</a></div></footer></div></header><section class=article-content><h2 id=用-vite-脚手架初始化项目>用 vite 脚手架初始化项目</h2><p>运行命令 -</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>yarn create vite
+</span></span></code></pre></td></tr></table></div></div><p>result -
+<img src=/p/how-to-build-a-vue3-project-with-vite-scaffold/create-vite.png width=816 height=668 srcset="/p/how-to-build-a-vue3-project-with-vite-scaffold/create-vite_hu_ee832475963a945c.png 480w, /p/how-to-build-a-vue3-project-with-vite-scaffold/create-vite_hu_60be092429d275ba.png 1024w" loading=lazy alt=result class=gallery-image data-flex-grow=122 data-flex-basis=293px></p><p>生成的树形目录 -
+<img src=/p/how-to-build-a-vue3-project-with-vite-scaffold/tree-menu.png width=816 height=600 srcset="/p/how-to-build-a-vue3-project-with-vite-scaffold/tree-menu_hu_68dd906cedb4c534.png 480w, /p/how-to-build-a-vue3-project-with-vite-scaffold/tree-menu_hu_4223cf71dcb25579.png 1024w" loading=lazy alt="tree menu" class=gallery-image data-flex-grow=136 data-flex-basis=326px></p><h2 id=配置-eslint>配置 eslint</h2><h3 id=安装-eslint>安装 eslint</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>yarn add -D eslint
+</span></span></code></pre></td></tr></table></div></div><h3 id=eslint-init>eslint init</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>   yarn eslint --init
+</span></span></code></pre></td></tr></table></div></div><p>result -
+<img src=/p/how-to-build-a-vue3-project-with-vite-scaffold/eslint-init.png width=1592 height=578 srcset="/p/how-to-build-a-vue3-project-with-vite-scaffold/eslint-init_hu_2d95ef5dbe2c066.png 480w, /p/how-to-build-a-vue3-project-with-vite-scaffold/eslint-init_hu_d5ea5901365cfd.png 1024w" loading=lazy alt="init eslint" class=gallery-image data-flex-grow=275 data-flex-basis=661px></p><p>会在目录下生成<code>.eslintrc.*</code>文件，但会有一个报错，需要在 env 下加<code>"node": true</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// ❌ &#39;module&#39; is not defined.
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>env</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>browser</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>es2021</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// add here resolve *&#39;module&#39; is not defined* bug
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nx>node</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><p>eslint 对 env node 的解释：node - Node.js 的全局变量和 Node.js 的范围。
+它会暴露出 nodejs 的全局变量（module 是其中之一）</p><h3 id=在-packagejson-配置-script>在 package.json 配置 script</h3><p>在 script 下添加<code>"lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix"</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># 运行</span>
+</span></span><span class=line><span class=cl>yarn lint
+</span></span></code></pre></td></tr></table></div></div><p>会提示有报错信息</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>moui@bogon vite-project % yarn lint
+</span></span><span class=line><span class=cl>yarn run v1.22.19
+</span></span><span class=line><span class=cl>$ eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/Users/moui/CodeSpace/vite-project/src/App.vue
+</span></span><span class=line><span class=cl>  1:8  error  Parsing error: <span class=s1>&#39;&gt;&#39;</span> expected
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/Users/moui/CodeSpace/vite-project/src/components/HelloWorld.vue
+</span></span><span class=line><span class=cl>  1:8  error  Parsing error: <span class=s1>&#39;&gt;&#39;</span> expected
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>✖ <span class=m>2</span> problems <span class=o>(</span><span class=m>2</span> errors, <span class=m>0</span> warnings<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>error Command failed with <span class=nb>exit</span> code 1.
+</span></span></code></pre></td></tr></table></div></div><p>原因：eslint 配置的 <code>parser: "@typescript-eslint/parser"</code> 是不会处理 vue 的 SFC 文件的 lint 的，对于.vue 的文件需要借助
+<code>eslint-plugin-vue</code>，在<code>eslint-plugin-vue</code>的官方文档文档中有说明：<strong>如果您已经使用另一个解析器（例如 &ldquo;parser&rdquo;: &ldquo;@typescript-eslint/parser&rdquo; ），请将其移至 parserOptions 中，这样它就不会与此插件配置使用的 vue-eslint-parser 冲突</strong>
+所以要把 eslint 的配置文件改为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-diff data-lang=diff><span class=line><span class=cl><span class=gd>- &#34;parser&#34;: &#34;@typescript-eslint/parser&#34;,
+</span></span></span><span class=line><span class=cl><span class=gd></span><span class=gi>+ &#34;parser&#34;: &#34;vue-eslint-parser&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi></span>  &#34;parserOptions&#34;: {
+</span></span><span class=line><span class=cl><span class=gi>+     &#34;parser&#34;: &#34;@typescript-eslint/parser&#34;,
+</span></span></span><span class=line><span class=cl><span class=gi></span>  }
+</span></span></code></pre></td></tr></table></div></div><h2 id=配置-prettier>配置 prettier</h2><h3 id=安装-prettier>安装 prettier</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>yarn add -D prettier
+</span></span></code></pre></td></tr></table></div></div><h3 id=创建配置文件>创建配置文件</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>touch .prettierrc.cjs
+</span></span></code></pre></td></tr></table></div></div><p>内容配置参考：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>module</span><span class=p>.</span><span class=nx>exports</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 一行的字符数，如果超过会进行换行，默认为80
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>printWidth</span><span class=o>:</span> <span class=mi>80</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 一个tab代表几个空格数，默认为2
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>tabWidth</span><span class=o>:</span> <span class=mi>2</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 是否使用tab进行缩进，默认为false，表示用空格进行缩减
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>useTabs</span><span class=o>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 字符串是否使用单引号，默认为false，使用双引号
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>singleQuote</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 行位是否使用分号，默认为true
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>semi</span><span class=o>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 是否使用尾逗号，有三个可选值&#34;&lt;none|es5|all&gt;&#34;
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>trailingComma</span><span class=o>:</span> <span class=s2>&#34;none&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 对象大括号直接是否有空格，默认为true，效果：{ foo: bar }
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>bracketSpacing</span><span class=o>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=解决冲突>解决冲突</h3><p>理论上<code>eslint</code>用于解决我们的代码规范，确保我们的代码质量， 而<code>prettier</code>则是用于优化我们的代码格式，提供更好的可读性和美观度。
+即<strong>使用 Prettier 来解决代码格式问题，使用 linter 来解决代码质量问题</strong>
+但实际上 Linters 通常不仅包含代码质量规则，还包含风格规则。使用 Prettier 时，大多数风格规则都是不必要的，但更糟糕的是——它们可能与 Prettier 发生冲突！
+但幸运的是可以通过一些配置关闭 linters 和 prettier 的冲突</p><ol><li><p><code>eslint-config-prettier</code>
+关闭所有不必要或可能与 Prettier 冲突的规则。</p></li><li><p><code>eslint-plugin-prettier</code>
+以 ESLint 规则运行 Prettier，并将差异报告为单独的 ESLint 问题 （基于 prettier 代码风格的 eslint 规则，即 eslint 使用 pretter 规则来格式化代码。）</p></li></ol><p><code>eslint-plugin-prettier</code>:
+This plugin works best if you disable all other ESLint rules relating to code formatting, and only enable rules that detect potential bugs. (If another active ESLint rule disagrees with prettier about how code should be formatted, it will be impossible to avoid lint errors.) You can use <code>eslint-config-prettier</code> to disable all formatting-related ESLint rules.</p><p>所以基于此，我们可以配置</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>yarn add -D eslint-config-prettier eslint-plugin-prettier
+</span></span></code></pre></td></tr></table></div></div><p>插件<code>eslint-plugin-prettier</code>附带一个 plugin:prettier/recommended 配置，可一次性设置插件和 <code>eslint-config-prettier</code></p><p>然后您需要添加 plugin:prettier/recommended 作为 <code>.eslintrc.*</code> 中的<strong>最后</strong>一个扩展：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-diff data-lang=diff><span class=line><span class=cl>module.exports = {
+</span></span><span class=line><span class=cl>  //...
+</span></span><span class=line><span class=cl>  extends: [
+</span></span><span class=line><span class=cl>  &#39;eslint:recommended&#39;,
+</span></span><span class=line><span class=cl>  &#39;plugin:vue/vue3-essential&#39;,
+</span></span><span class=line><span class=cl>  &#39;plugin:@typescript-eslint/recommended&#39;,
+</span></span><span class=line><span class=cl><span class=gi>+ &#39;plugin:prettier/recommended&#39; // 新增，必须放在最后面
+</span></span></span><span class=line><span class=cl><span class=gi></span>  ],
+</span></span><span class=line><span class=cl>  //...
+</span></span><span class=line><span class=cl>}
+</span></span></code></pre></td></tr></table></div></div><p>之后我们就可以在<code>.prettierrc.*</code>中设置自己的 prettier 规则了</p></section><footer class=article-footer><section class=article-lastmod><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>最后更新于 Mar 27, 2025 21:41 CST</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/p/what-is-bittorrent/><div class=article-image><img src=/hero.svg loading=lazy data-key=what-is-bittorrent data-hash=/hero.svg></div><div class=article-details><h2 class=article-title>什么是BitTorrent</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright><div>&copy; 2024 - 2025 MOUI</div><div class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建 | 主题 基于 <a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a> 魔改</div></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
